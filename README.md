@@ -1,60 +1,97 @@
-# Hotel Reservation System 
+Hotel Reservation System
+A simple command-line based Hotel Reservation System built in Java using JDBC to connect to a MySQL database. This project allows hotel staff to manage room reservations via an interactive text-based interface.
 
-A simple command-line based **Hotel Reservation System** built in Java using **JDBC** to connect to a MySQL database. This project allows hotel staff to manage room reservations by providing an interactive text-based interface.
+Features
+Reserve a room
 
----
+View all current reservations
 
-##  Features
+(Placeholder) Search functionality
 
--  Reserve a room
--  View all current reservations
--  Placeholder for search functionality
--  Update a reservation
--  Delete a reservation
--  Exit the system with a graceful message
+Update an existing reservation
 
----
+Delete a reservation
 
-##  Exception Handling
+Exit with a graceful animation
 
-This project is built with **full exception handling** to ensure robust behavior even during unexpected inputs or system issues.
+Exception Handling
+This project includes full exception handling to ensure robust and user-friendly execution during unexpected scenarios.
 
-###  Handled Scenarios
+Handled Scenarios
+Exception
 
-| Exception | Description |
-|----------|-------------|
-| `ClassNotFoundException` | Thrown when the MySQL JDBC driver is not found. |
-| `SQLException` | Catches all DB-related issues: connection failure, invalid query, etc. |
-| `InputMismatchException` | Prevents crashes when users enter non-numeric input for numeric fields. |
-| `InterruptedException` | Handles system exit animation delays. |
-| `RuntimeException` | Safeguards against uncaught input or logic errors during runtime. |
+Description
 
-###  Defensive Programming Measures
+ClassNotFoundException
 
-- Scanner `.nextLine()` calls used smartly to **consume newlines** after `.nextInt()` inputs.
-- Input validation using `hasNextInt()` (in earlier versions).
-- Structured try-catch blocks around **every DB call** and risky input area.
-- Graceful fallback messages such as `"Insertion Failed"` or `"Invalid Choice"` instead of abrupt crashes.
+Thrown if the MySQL JDBC driver is not found
 
----
+SQLException
 
-##  Database Schema
+Handles all database issues: invalid queries, connection errors
 
-Table: `reservations`
+InputMismatchException
 
-| Column Name      | Data Type     | Description                          |
-|------------------|---------------|--------------------------------------|
-| reservation_id   | INT (PK, AI)  | Unique ID for each reservation       |
-| guest_name       | VARCHAR(100)  | Full name of the guest               |
-| contact_number   | INT           | Guest’s contact number               |
-| room_number      | INT           | Room number being reserved           |
-| reservation_date | TIMESTAMP     | Automatically generated on insert    |
+Catches non-numeric input where numbers are expected
 
-###  SQL Setup
+InterruptedException
 
-```sql
+Ensures smooth exit animation using Thread.sleep()
+
+RuntimeException
+
+General fallback for logic errors
+
+Defensive Programming Measures
+.nextLine() used after .nextInt() to consume newline characters
+
+Try-catch blocks around all I/O and DB operations
+
+Friendly prompts and messages instead of crashes
+
+Graceful menu loop to allow repeated interaction
+
+Database Schema
+Table: reservations
+
+Column Name
+
+Data Type
+
+Description
+
+reservation_id
+
+INT (PK, AI)
+
+Unique ID for each reservation
+
+guest_name
+
+VARCHAR(100)
+
+Guest's full name
+
+contact_number
+
+INT
+
+Guest’s contact number
+
+room_number
+
+INT
+
+Room number reserved
+
+reservation_date
+
+TIMESTAMP
+
+Automatically generated on insert
+
+SQL Setup
 CREATE DATABASE hotel_db;
-
 USE hotel_db;
 
 CREATE TABLE reservations (
@@ -64,53 +101,42 @@ CREATE TABLE reservations (
   room_number INT,
   reservation_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-##  Getting Started
 
-###  Prerequisites
+Getting Started
+Prerequisites
+Java JDK 8 or above
 
-- Java JDK 8+  
-- MySQL Server (running on localhost)  
-- IntelliJ IDEA / Eclipse (or any Java IDE)  
-- MySQL JDBC Connector  
+MySQL Server (running locally)
 
----
+IntelliJ IDEA / Eclipse (any Java IDE)
 
-##  Setup Steps
+MySQL JDBC Driver
 
-1. **Clone the repository:**
+Setup Instructions
+Clone this repository:
 
-```bash
 git clone https://github.com/yourusername/hotel-reservation-system.git
 cd hotel-reservation-system
-Add the MySQL JDBC driver to your project's classpath.
 
-You can download it from MySQL Connector/J
+Add the JDBC Driver to your project’s classpath.
 
-Update your database credentials in the Java file:
+Configure database credentials in your Java file:
 
-java
-Copy
-Edit
 private static final String url = "jdbc:mysql://localhost:3306/hotel_db";
 private static final String username = "root";
-private static final String password = "yourpassword";
-Compile and run the Java file:
+private static final String password = "yourpassword"; // Replace with your MySQL password
 
-bash
-Copy
-Edit
+Compile and run the project:
+
 javac Hotel_Reservation_System.java
 java Hotel_Reservation_System
-📂 Project Structure
-Copy
-Edit
+
+Project Structure
 Hotel_Reservation_System/
 ├── Hotel_Reservation_System.java
 └── README.md
-🖥 Sample Output
-markdown
-Copy
-Edit
+
+Sample Console Output
 Hotel Management System
 1. Reserve a Room
 2. Show Reservations
@@ -119,29 +145,18 @@ Hotel Management System
 5. Delete Reservation
 0. Exit
 Enter Your Choice:
- Features
-- Reserve a room
 
-- Show all reservations
+Future Enhancements
+Implement full room search and filtering
 
-- Update a reservation
+Add availability checks and date-range inputs
 
-- Delete a reservation
+Admin login authentication feature
 
- Full Exception Handling
+Build GUI version using JavaFX/Swing
 
- Continuous interaction via console menu
+Migrate to web app using Spring Boot + JSP
 
- Future Enhancements
- Implement room search and filtering
-
- Add date-range input and availability checking
-
- Admin login authentication
-
-🖼 Develop GUI version using JavaFX/Swing
-
- Convert to web app using Spring Boot + JSP
-
-🧑‍💻 Author
+Author
 Bhavishya Jain
+GitHub Profile
