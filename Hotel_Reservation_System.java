@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Hotel_Reservation_System {
     private static final String url = "jdbc:mysql://localhost:3306/hotel_db";
     private static final String username = "root";
-    private static final String password = "abhay910";
+    private static final String password = "********"; //Change Password to yours
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
